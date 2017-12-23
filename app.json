@@ -1,5 +1,7 @@
 {
   "expo": {
+    "name": "currencyConverter",
+    "slug": "currency-converter",
     "sdkVersion": "23.0.0"
   }
 }
