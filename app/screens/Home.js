@@ -100,7 +100,8 @@ const mapStateToProps = state => {
     baseCurrency,
     quoteCurrency,
     amount: state.currencies.amount,
-    conversionRate: rates[quoteCurrency] || 0,
+    conversionRate:
+      baseCurrency === quoteCurrency ? 1 : rates[quoteCurrency] || 0,
     isFetching: conversionSelector.isFetching,
     lastConvertedDate: conversionSelector.date
       ? new Date(conversionSelector.date)
