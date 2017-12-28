@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StatusBar } from "react-native";
 
 import { Container } from "../components/Container";
+import { Header } from "../components/Header";
 import { Logo } from "../components/Logo";
 import { InputWithButton } from "../components/TextInput";
 import { ClearButton } from "../components/Buttons";
@@ -16,11 +17,15 @@ const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
   handlePressBaseCurrency = () => {
-    console.log("press base");
+    console.log("pressed base");
   };
 
   handlePressQuoteCurrency = () => {
-    console.log("press quote");
+    console.log("pressed quote");
+  };
+
+  handlePressSettings = () => {
+    console.log("pressed settings");
   };
 
   handleTextChange = text => {
@@ -34,8 +39,9 @@ class Home extends Component {
   render() {
     return (
       <Container>
-        <Logo />
         <StatusBar translucent={false} barStyle="light-content" />
+        <Header onPress={this.handlePressSettings} />
+        <Logo />
         <InputWithButton
           buttonText={TEMP_BASE_CURRENCY}
           onPress={this.handlePressBaseCurrency}
