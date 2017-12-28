@@ -26,7 +26,8 @@ export default EStyleSheet.create({
     justifyContent: "center",
     backgroundColor: "$white",
     borderTopLeftRadius: BORDER_RADIUS,
-    borderBottomLeftRadius: BORDER_RADIUS
+    borderBottomLeftRadius: BORDER_RADIUS,
+    width: "20%"
   },
   buttonText: {
     fontWeight: "600",
