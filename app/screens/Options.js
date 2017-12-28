@@ -14,11 +14,9 @@ class Options extends Component {
     navigation: PropTypes.object
   };
   handleThemesPress = () => {
-    console.log("pressed themes");
     this.props.navigation.navigate("Themes", { title: "Themes" });
   };
   handleSitePress = () => {
-    console.log("pressed external link");
     Linking.openURL("http://fixer.io").catch(() => alert("An error occurred."));
   };
 

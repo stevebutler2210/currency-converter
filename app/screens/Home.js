@@ -21,17 +21,14 @@ class Home extends Component {
     navigation: PropTypes.object
   };
   handlePressBaseCurrency = () => {
-    console.log("pressed base");
     this.props.navigation.navigate("CurrencyList", { title: "Base Currency" });
   };
 
   handlePressQuoteCurrency = () => {
-    console.log("pressed quote");
     this.props.navigation.navigate("CurrencyList", { title: "Quote Currency" });
   };
 
   handlePressSettings = () => {
-    console.log("pressed settings");
     this.props.navigation.navigate("Options", { title: "Options" });
   };
 

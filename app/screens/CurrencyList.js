@@ -13,7 +13,6 @@ class CurrencyList extends Component {
   };
 
   handlePress = () => {
-    console.log("row press");
     this.props.navigation.goBack(null);
   };
 
