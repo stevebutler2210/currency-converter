@@ -2,14 +2,18 @@ import {
   CHANGE_CURRENCY_AMOUNT,
   SWAP_CURRENCY,
   CHANGE_BASE_CURRENCY,
-  CHANGE_QUOTE_CURRENCY
+  CHANGE_QUOTE_CURRENCY,
+  GET_INITIAL_CONVERSION,
+  CONVERSION_RESULT,
+  CONVERSION_ERROR
 } from "../actions/currencies";
 
 const initialState = {
   baseCurrency: "USD",
   quoteCurrency: "GBP",
   amount: 100,
-  conversions: {}
+  conversions: {},
+  error: null
 };
 
 const setConversions = (state, action) => {
@@ -53,6 +57,29 @@ const reducer = (state = initialState, action) => {
         ...state,
         quoteCurrency: action.currency,
         conversions: setConversions(state, action)
+      };
+    case GET_INITIAL_CONVERSION:
+      return {
+        ...state,
+        conversions: setConversions(state, { currency: state.baseCurrency })
+      };
+    case CONVERSION_RESULT:
+      return {
+        ...state,
+        baseCurrency: action.result.base,
+        date: action.result.date,
+        conversions: {
+          ...state.conversions,
+          [action.result.base]: {
+            isFetching: false,
+            ...action.result
+          }
+        }
+      };
+    case CONVERSION_ERROR:
+      return {
+        ...state,
+        error: action.error
       };
     default:
       return state;
